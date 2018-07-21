@@ -1,7 +1,5 @@
 #include "color.h"
 
-
-
 void set_header_image( int l, int h){
     {char data[18]={66,77,58,0,0,0,0,0,0,0,54,0,0,0,40,0,0,0};
     fwrite(data,sizeof(char),18,fic);}
@@ -24,4 +22,10 @@ void set_footer_image(int l, int h){
     for(i=0;i<l*h;i++){
         fwrite(&x,sizeof(char),1,fic);
     }
+}
+
+color rgb(char o1, char o2, char o3){
+    color c;
+    c.o1=o3; c.o2=o2; c.o3=o1;
+    return c;
 }
