@@ -7,6 +7,7 @@
 
 FILE *fic;
 
+
 typedef struct structure{
     char o1;
     char o2;
