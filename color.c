@@ -29,3 +29,15 @@ color rgb(char o1, char o2, char o3){
     c.o1=o3; c.o2=o2; c.o3=o1;
     return c;
 }
+
+bool is_gray_background(color c){
+
+    char a=abs(c.o1-c.o2);
+    char b=abs(c.o1-c.o3);
+    char d=abs(c.o2-c.o3);
+
+    if(a<20 && b<20 && d<20)
+        return true;
+    
+    return false;
+}

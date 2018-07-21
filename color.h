@@ -7,6 +7,9 @@
 
 FILE *fic;
 
+typedef enum {
+    false,true
+}bool;
 
 typedef struct structure{
     char o1;
@@ -18,5 +21,5 @@ void set_header_image( int l, int h);
 void set_footer_image(int l, int h);
 color rgb(char o1, char o2, char o3);
 
-
+bool is_gray_background(color c);
 #endif
