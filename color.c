@@ -15,9 +15,20 @@ color rgb(char o1, char o2, char o3){
 }
 
 void inverse(image img){
+    FILE *f=fopen(img.path,"rb");
+        size=sizeof_image(img);
+        char *p=malloc(size);
 
+        int i;
+        for(i=0;i<size;i++){
+            fread=(&p[size-i],1,1,f);
+        }
+    fclose(f);
+
+    FILE *fn=fopen(img.path,"wb");
+        fwrite(p,1,size,fn);
+    fclose(fn);
 }
-
 
 bool is_gray_background(pixel px){
 
