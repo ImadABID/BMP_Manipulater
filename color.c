@@ -1,27 +1,11 @@
 #include "color.h"
 
-void set_header_image( int l, int h){
-    {char data[18]={66,77,58,0,0,0,0,0,0,0,54,0,0,0,40,0,0,0};
-    fwrite(data,sizeof(char),18,fic);}
+void set_header_image(){
 
-    fwrite(&l,2,1,fic);
-    {int x=0; fwrite(&x,1,2,fic);}
-    fwrite(&h,2,1,fic);
-
-    {
-        char data[30]={0,0,1,0,24,0,0,0,0,0,4,
-        0,0,0,0,0,0,0,0,0,
-        0,0,0,0,0,0,0,0,0,0};
-        fwrite(data,sizeof(char),30,fic);
-    }
 }
 
-void set_footer_image(int l, int h){
-    int i;
-    int x=0;
-    for(i=0;i<l*h;i++){
-        fwrite(&x,sizeof(char),1,fic);
-    }
+void set_footer_image(){
+
 }
 
 color rgb(char o1, char o2, char o3){
@@ -30,14 +14,12 @@ color rgb(char o1, char o2, char o3){
     return c;
 }
 
-bool is_gray_background(color c){
+void inverse(){
 
-    char a=abs(c.o1-c.o2);
-    char b=abs(c.o1-c.o3);
-    char d=abs(c.o2-c.o3);
+}
 
-    if(a<20 && b<20 && d<20)
-        return true;
-    
+
+bool is_gray_background(){
+
     return false;
 }

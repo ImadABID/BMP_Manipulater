@@ -5,8 +5,6 @@
 #include <stdlib.h>
 #include <math.h>
 
-FILE *fic;
-
 typedef enum {
     false,true
 }bool;
@@ -17,9 +15,13 @@ typedef struct structure{
     char o3;
 }color;
 
-void set_header_image( int l, int h);
-void set_footer_image(int l, int h);
+
+
+void set_header_image();
+void set_footer_image();
+void inverse();
 color rgb(char o1, char o2, char o3);
 
-bool is_gray_background(color c);
+bool is_gray_background();
 #endif
+//int fseek ( FILE * stream, long int current, int final ); SEEK_END
