@@ -1,1 +1,3 @@
 #include "binaire.h"
+
+int 

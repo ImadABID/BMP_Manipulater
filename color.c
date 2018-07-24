@@ -11,8 +11,17 @@ image set_image(char *img_path, int lenght, hight){
 image open(char *path){
     int l,h;
     FILE *f=fopen(path,"rb");
-    
-    fclose(f)
+        fseek(f,19,SEEK_SET);
+        char pl[2];
+        fread(pl,1,2,f);
+        {char tmp=pl[1]; pl[1]=pl[2]; pl[2]=tmp;}
+
+        fseek(f,23,SEEK_SET);
+        char ph[2];
+        fread(ph,1,2,f);
+        {char tmp=ph[1]; ph[1]=ph[2]; ph[2]=tmp;}
+    fclose(f);
+    return set_image(path,HtoD(pl),HtoD(ph));
 }
 
 void set_header_image(image img){
