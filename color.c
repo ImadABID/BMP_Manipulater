@@ -19,7 +19,7 @@ void inverse(image img){
 }
 
 
-bool is_gray_background(){
+bool is_gray_background(pixel px){
 
     return false;
 }
