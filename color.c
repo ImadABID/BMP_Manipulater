@@ -1,5 +1,20 @@
 #include "color.h"
 
+image set_image(char *img_path, int lenght, hight){
+    image img
+    img.path=img_path;
+    img.l= lenght;
+    img.h= hight;
+    return img;
+}
+
+image open(char *path){
+    int l,h;
+    FILE *f=fopen(path,"rb");
+    
+    fclose(f)
+}
+
 void set_header_image(image img){
 
 }

@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include "binaire.h"
 
 typedef enum {
     false,true
@@ -28,13 +29,7 @@ typedef struct structure2{
     color couleur;
 }pixel;
 
-image set_image(char *img_path, int lenght, hight){
-    image img
-    img.path=img_path;
-    img.l= lenght;
-    img.h= hight;
-    return img;
-}
+image set_image(char *img_path, int lenght, hight);
 void set_header_image(image img);
 void set_footer_image(image img);
 void inverse(image img);
