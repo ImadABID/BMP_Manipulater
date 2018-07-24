@@ -16,9 +16,9 @@ typedef struct structure{
 }color;
 
 typedef struct structure2{
+    char *path;
     int l;
     int h;
-    char *path;
 }image;
 
 typedef struct structure2{
@@ -28,7 +28,13 @@ typedef struct structure2{
     color couleur;
 }pixel;
 
-
+image set_image(char *img_path, int lenght, hight){
+    image img
+    img.path=img_path;
+    img.l= lenght;
+    img.h= hight;
+    return img;
+}
 void set_header_image(image img);
 void set_footer_image(image img);
 void inverse(image img);
