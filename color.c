@@ -1,31 +1,36 @@
 #include "color.h"
 
-void set_header_image( int l, int h){
-    {char data[18]={66,77,58,0,0,0,0,0,0,0,54,0,0,0,40,0,0,0};
-    fwrite(data,sizeof(char),18,fic);}
+void set_header_image(image img){
 
-    fwrite(&l,2,1,fic);
-    {int x=0; fwrite(&x,1,2,fic);}
-    fwrite(&h,2,1,fic);
-
-    {
-        char data[30]={0,0,1,0,24,0,0,0,0,0,4,
-        0,0,0,0,0,0,0,0,0,
-        0,0,0,0,0,0,0,0,0,0};
-        fwrite(data,sizeof(char),30,fic);
-    }
 }
 
-void set_footer_image(int l, int h){
-    int i;
-    int x=0;
-    for(i=0;i<l*h;i++){
-        fwrite(&x,sizeof(char),1,fic);
-    }
+void set_footer_image(image img){
+
 }
 
 color rgb(char o1, char o2, char o3){
     color c;
     c.o1=o3; c.o2=o2; c.o3=o1;
     return c;
+}
+
+void inverse(image img){
+    FILE *f=fopen(img.path,"rb");
+        size=sizeof_image(img);
+        char *p=malloc(size);
+
+        int i;
+        for(i=0;i<size;i++){
+            fread=(&p[size-i],1,1,f);
+        }
+    fclose(f);
+
+    FILE *fn=fopen(img.path,"wb");
+        fwrite(p,1,size,fn);
+    fclose(fn);
+}
+
+bool is_gray_background(pixel px){
+
+    return false;
 }
