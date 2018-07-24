@@ -1,10 +1,10 @@
 #include "color.h"
 
-void set_header_image(){
+void set_header_image(image img){
 
 }
 
-void set_footer_image(){
+void set_footer_image(image img){
 
 }
 
@@ -14,7 +14,7 @@ color rgb(char o1, char o2, char o3){
     return c;
 }
 
-void inverse(){
+void inverse(image img){
 
 }
 
