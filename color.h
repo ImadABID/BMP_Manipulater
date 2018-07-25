@@ -10,9 +10,9 @@ typedef enum {
 }bool;
 
 typedef struct structure{
-    char o1;
-    char o2;
-    char o3;
+    unsigned char o1;
+    unsigned char o2;
+    unsigned char o3;
 }color;
 
 typedef struct structure2{
@@ -32,7 +32,7 @@ image set_image(char *img_path, int lenght, hight);
 void set_header_image(image img);
 void set_footer_image(image img);
 void inverse(image img);
-color rgb(char o1, char o2, char o3);
+color rgb(unsigned char o1, unsigned char o2, unsigned char o3);
 
 bool is_gray_background(pixel px);
 #endif

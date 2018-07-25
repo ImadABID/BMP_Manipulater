@@ -12,14 +12,14 @@ image open(char *path){
     int l,h;
     FILE *f=fopen(path,"rb");
         fseek(f,19,SEEK_SET);
-        char pl[2];
+        unsigned char pl[2];
         fread(pl,1,2,f);
-        {char tmp=pl[0]; pl[0]=pl[1]; pl[1]=tmp;}
+        {unsigned char tmp=pl[0]; pl[0]=pl[1]; pl[1]=tmp;}
 
         fseek(f,23,SEEK_SET);
-        char ph[2];
+        unsigned char ph[2];
         fread(ph,1,2,f);
-        {char tmp=ph[0]; ph[0]=ph[1]; ph[1]=tmp;}
+        {unsigned char tmp=ph[0]; ph[0]=ph[1]; ph[1]=tmp;}
     fclose(f);
     return set_image(path,HtoD(pl),HtoD(ph));
 }
@@ -32,7 +32,7 @@ void set_footer_image(image img){
 
 }
 
-color rgb(char o1, char o2, char o3){
+color rgb(unsigned char o1, unsigned char o2, unsigned char o3){
     color c;
     c.o1=o3; c.o2=o2; c.o3=o1;
     return c;
@@ -41,7 +41,7 @@ color rgb(char o1, char o2, char o3){
 void inverse(image img){
     FILE *f=fopen(img.path,"rb");
         size=sizeof_image(img);
-        char *p=malloc(size);
+        unsigned char *p=malloc(size);
 
         int i;
         for(i=0;i<size;i++){
