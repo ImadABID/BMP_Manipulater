@@ -64,6 +64,15 @@ int sizeof_image(image img){
     return r;
 }
 
+unsigned char *adapt(unsigned char *p){
+    unsigned char q[4];
+    int i;
+    for(i=0;i<4;i++){
+        q[i]=p[4-i];
+    }
+    return q;
+}
+
 
 bool is_gray_background(pixel px){
 
