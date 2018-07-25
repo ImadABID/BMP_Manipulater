@@ -55,7 +55,13 @@ void inverse(image img){
 }
 
 int sizeof_image(image img){
-    return img.l*img.h*4+##################;
+    unsigned char p[4];
+    FILE *f=fopen(img.path,"rb");
+        fseek(f,3,SEEK_SET);
+        fread(p,1,4,f);
+    fclose(f); 
+    int r=HtoD(adapt(p));
+    return r;
 }
 
 
