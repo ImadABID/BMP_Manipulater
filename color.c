@@ -40,7 +40,7 @@ color rgb(unsigned char o1, unsigned char o2, unsigned char o3){
 
 void inverse(image img){
     FILE *f=fopen(img.path,"rb");
-        size=sizeof_image(img);
+        int size=sizeof_image(img);
         unsigned char *p=malloc(size);
 
         int i;
@@ -53,6 +53,11 @@ void inverse(image img){
         fwrite(p,1,size,fn);
     fclose(fn);
 }
+
+int sizeof_image(image img){
+    return img.l*img.h*4+##################;
+}
+
 
 bool is_gray_background(pixel px){
 
