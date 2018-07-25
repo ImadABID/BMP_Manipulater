@@ -38,22 +38,6 @@ color rgb(unsigned char o1, unsigned char o2, unsigned char o3){
     return c;
 }
 
-void inverse(image img){
-    FILE *f=fopen(img.path,"rb");
-        int size=sizeof_image(img);
-        unsigned char *p=malloc(size);
-
-        int i;
-        for(i=0;i<size;i++){
-            fread=(&p[size-i],1,1,f);
-        }
-    fclose(f);
-
-    FILE *fn=fopen(img.path,"wb");
-        fwrite(p,1,size,fn);
-    fclose(fn);
-}
-
 int sizeof_image(image img){
     unsigned char p[4];
     FILE *f=fopen(img.path,"rb");
