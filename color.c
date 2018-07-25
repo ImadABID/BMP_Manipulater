@@ -14,12 +14,12 @@ image open(char *path){
         fseek(f,19,SEEK_SET);
         char pl[2];
         fread(pl,1,2,f);
-        {char tmp=pl[1]; pl[1]=pl[2]; pl[2]=tmp;}
+        {char tmp=pl[0]; pl[0]=pl[1]; pl[1]=tmp;}
 
         fseek(f,23,SEEK_SET);
         char ph[2];
         fread(ph,1,2,f);
-        {char tmp=ph[1]; ph[1]=ph[2]; ph[2]=tmp;}
+        {char tmp=ph[0]; ph[0]=ph[1]; ph[1]=tmp;}
     fclose(f);
     return set_image(path,HtoD(pl),HtoD(ph));
 }
