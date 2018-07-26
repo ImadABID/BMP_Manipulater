@@ -13,21 +13,25 @@ image open(char *path){
     FILE *f=fopen(path,"rb");
         //size
         unsigned char *ps=malloc(4);
-        fseek(f,3,SEEK_SET);
+        fseek(f,2,SEEK_SET);
         fread(ps,1,4,f);
+        ps=adapt(ps);
 
         //Length
-        fseek(f,19,SEEK_SET);
+        fseek(f,18,SEEK_SET);
         unsigned char *pl=malloc(4);
         fread(pl,1,4,f);
         pl=adapt(pl);
 
         //Hight
-        fseek(f,23,SEEK_SET);
+        fseek(f,22,SEEK_SET);
         unsigned char *ph=malloc(4);
-        fread(ph,1,2,f);
+        fread(ph,1,4,f);
         ph=adapt(ph);
     fclose(f);
+
+    printf("\n%d\n",HtoD(ph));
+
     return set_image(path, HtoD(ps), HtoD(pl), HtoD(ph));
 }
 
@@ -50,7 +54,7 @@ unsigned char *adapt(unsigned char *p){
     unsigned char *q=malloc(4);
     int i;
     for(i=0;i<4;i++){
-        q[i]=p[4-i];
+        q[i]=p[3-i];
     }
     return q;
 }
