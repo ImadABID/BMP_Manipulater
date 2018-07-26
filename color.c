@@ -1,27 +1,34 @@
 #include "color.h"
 
-image set_image(char *img_path, int lenght, int hight){
+image set_image(char *img_path, int img_size, int lenght, int hight){
     image img;
-    img.path=img_path;
+    img.path=malloc(255); img.path=img_path;
+    img.size=img_size;
     img.l= lenght;
     img.h= hight;
     return img;
 }
 
 image open(char *path){
-    int l,h;
     FILE *f=fopen(path,"rb");
-        fseek(f,19,SEEK_SET);
-        unsigned char pl[2];
-        fread(pl,1,2,f);
-        {unsigned char tmp=pl[0]; pl[0]=pl[1]; pl[1]=tmp;}
+        //size
+        unsigned char *ps=malloc(4);
+        fseek(f,3,SEEK_SET);
+        fread(ps,1,4,f);
 
+        //Length
+        fseek(f,19,SEEK_SET);
+        unsigned char *pl=malloc(4);
+        fread(pl,1,4,f);
+        pl=adapt(pl);
+
+        //Hight
         fseek(f,23,SEEK_SET);
-        unsigned char ph[2];
+        unsigned char *ph=malloc(4);
         fread(ph,1,2,f);
-        {unsigned char tmp=ph[0]; ph[0]=ph[1]; ph[1]=tmp;}
+        ph=adapt(ph);
     fclose(f);
-    return set_image(path,HtoD(pl),HtoD(ph));
+    return set_image(path, HtoD(ps), HtoD(pl), HtoD(ph));
 }
 
 void set_header_image(image img){
@@ -38,15 +45,6 @@ color rgb(unsigned char o1, unsigned char o2, unsigned char o3){
     return c;
 }
 
-int sizeof_image(image img){
-    unsigned char p[4];
-    FILE *f=fopen(img.path,"rb");
-        fseek(f,3,SEEK_SET);
-        fread(p,1,4,f);
-    fclose(f); 
-    int r=HtoD(adapt(p));
-    return r;
-}
 
 unsigned char *adapt(unsigned char *p){
     unsigned char *q=malloc(4);

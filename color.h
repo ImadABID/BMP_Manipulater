@@ -17,6 +17,7 @@ typedef struct structure{
 
 typedef struct structure2{
     char *path;
+    int size;
     int l;
     int h;
 }image;
@@ -28,10 +29,9 @@ typedef struct structure3{
     color couleur;
 }pixel;
 
-image set_image(char *img_path, int lenght, int hight);
+image set_image(char *img_path, int img_size, int lenght, int hight);
 void set_header_image(image img);
 void set_footer_image(image img);
-int sizeof_image(image img);
 
 unsigned char *adapt(unsigned char *p);
 
