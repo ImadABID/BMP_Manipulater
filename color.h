@@ -21,14 +21,14 @@ typedef struct structure2{
     int h;
 }image;
 
-typedef struct structure2{
+typedef struct structure3{
     image img;
     int x;
     int y;
     color couleur;
 }pixel;
 
-image set_image(char *img_path, int lenght, hight);
+image set_image(char *img_path, int lenght, int hight);
 void set_header_image(image img);
 void set_footer_image(image img);
 int sizeof_image(image img);

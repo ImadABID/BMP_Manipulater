@@ -1,7 +1,7 @@
 #include "color.h"
 
-image set_image(char *img_path, int lenght, hight){
-    image img
+image set_image(char *img_path, int lenght, int hight){
+    image img;
     img.path=img_path;
     img.l= lenght;
     img.h= hight;
@@ -49,7 +49,7 @@ int sizeof_image(image img){
 }
 
 unsigned char *adapt(unsigned char *p){
-    unsigned char q[4];
+    unsigned char *q=malloc(4);
     int i;
     for(i=0;i<4;i++){
         q[i]=p[4-i];
