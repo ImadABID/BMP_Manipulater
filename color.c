@@ -1,14 +1,5 @@
 #include "color.h"
 
-/*
-:::::::::::::::::::::::
-:::::::::::::::::::::::
-git commit -m "Editing: set_header_image"
-setfooter
-DtoH();
-:::::::::::::::::::::::
-:::::::::::::::::::::::
-*/
 image set_image(char *img_path, int img_size, int lenght, int hight){
     image img;
     img.path=malloc(255); img.path=img_path;
