@@ -41,4 +41,3 @@ color rgb(unsigned char o1, unsigned char o2, unsigned char o3);
 
 bool is_gray_background(pixel px);
 #endif
-//int fseek ( FILE * stream, long int current, int final ); SEEK_END
