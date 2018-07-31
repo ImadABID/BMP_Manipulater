@@ -1,5 +1,11 @@
 #include "binaire.h"
-
+#define _256P3 16777216
+#define _256P2 65536
 unsigned int HtoD(unsigned char *p){
-    return p[0]*16777216+p[1]*65536+p[2]*256+p[3];
+    return p[0]*_256P3+p[1]*_256P2+p[2]*256+p[3];
+}
+
+unsigned char *DtoH(unsigned int *e){
+    unsigned char *p=malloc(4);
+    p[3]=(int)(e/_256P3);
 }
