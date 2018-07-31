@@ -1,4 +1,4 @@
-#include "binaire.h"
+#include "binary.h"
 #define _256P3 16777216
 #define _256P2 65536
 unsigned int HtoD(unsigned char *p){

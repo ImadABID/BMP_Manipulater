@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "binaire.h"
+#include "binary.h"
 
 typedef enum {
     false,true
