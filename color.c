@@ -70,7 +70,12 @@ void set_header_image(image img){
 }
 
 void set_footer_image(image img){
+    unsigned char *p=malloc(2);
+    p[0]=0; p[1]=0;
 
+    FILE *f=fopen(img.path,"ab");
+        fwrite(p,1,2,f);
+    fclose(f);
 }
 
 color rgb(unsigned char o1, unsigned char o2, unsigned char o3){
