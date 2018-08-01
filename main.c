@@ -1,8 +1,8 @@
-#include "bmp.h"
-#include "binary.h"
+#include "src/bmp.h"
 
 int main(){
 
+    printf("Devloping...");
 
     return 0;
 }
