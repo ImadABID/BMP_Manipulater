@@ -25,3 +25,4 @@ void set_footer_image(image img);
 
 unsigned char *adapt(unsigned char *p);
 
+#endif
