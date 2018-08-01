@@ -1,4 +1,4 @@
-#include "color.h"
+#include "bmp.h"
 
 image set_image(char *img_path, int img_size, int lenght, int hight){
     image img;
@@ -92,10 +92,4 @@ unsigned char *adapt(unsigned char *p){
         q[i]=p[3-i];
     }
     return q;
-}
-
-
-bool is_gray_background(pixel px){
-
-    return false;
 }

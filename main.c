@@ -1,4 +1,4 @@
-#include "color.h"
+#include "bmp.h"
 #include "binary.h"
 
 int main(){

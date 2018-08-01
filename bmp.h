@@ -1,5 +1,5 @@
-#ifndef __COLOR_H__
-#define __COLOR_H__
+#ifndef __BMP_H__
+#define __BMP_H__
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -38,6 +38,3 @@ void set_footer_image(image img);
 unsigned char *adapt(unsigned char *p);
 
 color rgb(unsigned char o1, unsigned char o2, unsigned char o3);
-
-bool is_gray_background(pixel px);
-#endif
