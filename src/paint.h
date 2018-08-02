@@ -18,6 +18,7 @@ typedef struct structure3{
 
 color rgb(unsigned char o1, unsigned char o2, unsigned char o3);
 
+void save_pixel(pixel px);
 unsigned int from2Dto1D(pixel px);
 
 #endif

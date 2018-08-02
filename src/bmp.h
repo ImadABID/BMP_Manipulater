@@ -16,7 +16,7 @@ typedef struct structure2{
     int h;
 }image;
 
-image set_image(char *img_path, int img_size, int lenght, int hight);
+image set_image(char *img_path, int lenght, int hight);
 
 image open(char *path);
 

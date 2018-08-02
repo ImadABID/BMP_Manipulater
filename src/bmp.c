@@ -1,9 +1,9 @@
 #include "bmp.h"
 
-image set_image(char *img_path, int img_size, int lenght, int hight){
+image set_image(char *img_path, int lenght, int hight){
     image img;
     img.path=malloc(255); img.path=img_path;
-    img.size=img_size;
+    img.size=57+lenght*hight;
     img.l= lenght;
     img.h= hight;
     return img;
