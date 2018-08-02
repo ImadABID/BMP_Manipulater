@@ -32,7 +32,7 @@ image open(char *path){
 
     printf("\n%d\n",HtoD(ph));
 
-    return set_image(path, HtoD(ps), HtoD(pl), HtoD(ph));
+    return set_image(path, HtoD(pl), HtoD(ph));
 }
 
 void set_header_image(image img){

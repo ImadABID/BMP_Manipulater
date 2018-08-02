@@ -17,5 +17,5 @@ void save_pixel(pixel px){
 
 unsigned int from2Dto1D(pixel px){
     px.y=px.img.h-px.y;
-    return (54+(px.y-1)*px.img.l+px.x);
+    return (55+(px.y-1)*px.img.l+px.x);
 }
