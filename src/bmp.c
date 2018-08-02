@@ -79,10 +79,11 @@ void set_footer_image(image img){
 }
 
 unsigned char *adapt(unsigned char *p){
-    unsigned char *q=malloc(4);
+    const char taille=4;
+    unsigned char *q=malloc(taille);
     int i;
-    for(i=0;i<4;i++){
-        q[i]=p[3-i];
+    for(i=0;i<taille;i++){
+        q[i]=p[taille-1-i];
     }
     return q;
 }
