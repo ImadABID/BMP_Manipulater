@@ -71,15 +71,6 @@ void set_header_image(image img){
     fclose(f);
 }
 
-void set_footer_image(image img){
-    unsigned char *p=malloc(2);
-    p[0]=0; p[1]=0;
-
-    FILE *f=fopen(img.path,"ab");
-        fwrite(p,1,2,f);
-    fclose(f);
-}
-
 unsigned char *adapt(unsigned char *p){
     const char taille=4;
     unsigned char *q=malloc(taille);

@@ -21,7 +21,6 @@ image set_image(char *img_path, int lenght, int hight);
 image open(char *path);
 
 void set_header_image(image img);
-void set_footer_image(image img);
 
 unsigned char *adapt(unsigned char *p);
 
