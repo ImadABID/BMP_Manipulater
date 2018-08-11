@@ -1,5 +1,5 @@
 #include "bmp.h"
-
+#include <stdio.h>
 image set_image(char *img_path, int lenght, int hight){
     image img;
     img.path=malloc(255); img.path=img_path;
@@ -39,27 +39,29 @@ void set_header_image(image img){
     unsigned char p2oct[2]={66,77};
     FILE *f=fopen(img.path,"wb");
         fwrite(p2oct,1,2,f); //signature bmp
-        
+
         fwrite(adapt(DtoH(img.size)),1,4,f); //size of file
 
         p2oct[0]=0; p2oct[1]=0;
         fwrite(p2oct,1,2,f); fwrite(p2oct,1,2,f);
 
         p2oct[0]=54;
-        fwrite(p2oct,1,2,f); fwrite(p2oct,1,2,f);
-        p2oct[0]=0; 
-        fwrite(p2oct,1,2,f); fwrite(p2oct,1,2,f);
+        fwrite(p2oct,1,2,f);
+        p2oct[0]=0;
+        fwrite(p2oct,1,2,f);
 
-        p2oct[0]=40; 
-        fwrite(p2oct,1,2,f); fwrite(p2oct,1,2,f);
-        p2oct[0]=0; 
-        fwrite(p2oct,1,2,f); fwrite(p2oct,1,2,f);
+        p2oct[0]=40;
+        fwrite(p2oct,1,2,f);
+        p2oct[0]=0;
+        fwrite(p2oct,1,2,f);
 
         fwrite(adapt(DtoH(img.l)),1,4,f); //lenght
         fwrite(adapt(DtoH(img.h)),1,4,f); //hight
 
         p2oct[0]=1; 
-        fwrite(p2oct,1,2,f); fwrite(p2oct,1,2,f);
+        fwrite(p2oct,1,2,f);
+        p2oct[0]=0; 
+        fwrite(p2oct,1,2,f);
 
         int i; p2oct[0]=0;
         for(i=0;i<13;i++){
