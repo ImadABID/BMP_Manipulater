@@ -2,7 +2,7 @@
 
 color rgb(unsigned char o1, unsigned char o2, unsigned char o3){
     color c;
-    c.o1=o3; c.o2=o2; c.o3=o1;
+    c.o1=o1; c.o2=o2; c.o3=o3;
     return c;
 }
 
@@ -17,5 +17,5 @@ void save_pixel(pixel px){
 
 unsigned int from2Dto1D(pixel px){
     px.y=px.img.h-px.y;
-    return 53+3*((px.y-1)*(px.img.l+1)+px.x);
+    return EN_TETE_SIZE+3*((px.y-1)*(px.img.l+1)+px.x);
 }

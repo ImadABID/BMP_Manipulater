@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include "binary.h"
 
+#define EN_TETE_SIZE 54
+
 typedef enum {
     false,true
 }bool;

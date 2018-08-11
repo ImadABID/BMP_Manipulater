@@ -3,7 +3,7 @@
 image set_image(char *img_path, int lenght, int hight){
     image img;
     img.path=malloc(255); img.path=img_path;
-    img.size=53+(lenght+1)*hight;
+    img.size=EN_TETE_SIZE+3*(lenght+1)*hight;
     img.l= lenght;
     img.h= hight;
     return img;
@@ -75,7 +75,7 @@ void set_header_image(image img){
         }
 
         //Inisialize the body of the image to 00
-        for(i=0;i<img.size-53;i++){
+        for(i=0;i<img.size-EN_TETE_SIZE;i++){
             fwrite(&p2oct[1],1,1,f);
         }
 
