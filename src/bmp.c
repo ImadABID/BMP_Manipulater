@@ -75,7 +75,7 @@ void set_header_image(image img){
         }
 
         //Inisialize the body of the image to 00
-        for(i=0;i<img.size-;i++){
+        for(i=0;i<img.size-53;i++){
             fwrite(&p2oct[1],1,1,f);
         }
 
