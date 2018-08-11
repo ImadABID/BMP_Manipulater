@@ -3,7 +3,7 @@
 image set_image(char *img_path, int lenght, int hight){
     image img;
     img.path=malloc(255); img.path=img_path;
-    img.size=57+lenght*hight;
+    img.size=53+(lenght+1)*hight;
     img.l= lenght;
     img.h= hight;
     return img;
@@ -58,16 +58,27 @@ void set_header_image(image img){
         fwrite(adapt(DtoH(img.l)),1,4,f); //lenght
         fwrite(adapt(DtoH(img.h)),1,4,f); //hight
 
-        p2oct[0]=1; 
+        p2oct[0]=1;
         fwrite(p2oct,1,2,f);
-        p2oct[0]=0; 
+        p2oct[0]=24; 
         fwrite(p2oct,1,2,f);
 
-        int i; p2oct[0]=0;
-        for(i=0;i<13;i++){
-            fwrite(p2oct,1,2,f);
+        p2oct[0]=0; 
+        fwrite(p2oct,1,2,f); fwrite(p2oct,1,2,f);
+
+        p2oct[0]=24; 
+        fwrite(p2oct,1,2,f);
+
+        int i;
+        for(i=0;i<18;i++){
+            fwrite(&p2oct[1],1,1,f);
         }
-    
+
+        //Inisialize the body of the image to 00
+        for(i=0;i<img.size-;i++){
+            fwrite(&p2oct[1],1,1,f);
+        }
+
     fclose(f);
 }
 

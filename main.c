@@ -51,9 +51,6 @@ int main(){
         save_pixel(px5);
         save_pixel(px6);
 
-        
-    set_footer_image(img);
-
 
     return 0;
 }
