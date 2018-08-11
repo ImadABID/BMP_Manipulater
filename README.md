@@ -1,5 +1,5 @@
 # BMP_Manipulater
-
+<hr>
 This library allow us to do somme manipulations on bmp image such as:
     *creat a new Image;
     *open a existing image to modificate it;
