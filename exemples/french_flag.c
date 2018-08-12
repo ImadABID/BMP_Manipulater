@@ -1,6 +1,6 @@
-#include "src/paint.h"
-#define L 255
-#define H 128
+#include "D:\Imad_Donnes\Etude\Programmation\Projets\BMP_Manipulater\src\paint.h"
+#define L 240
+#define H 120
 int main(){
 
     image img=set_image("french_flag.bmp",L,H);
@@ -14,7 +14,7 @@ int main(){
     int x,y;
 
     px.couleur=red;
-    for(x=0;x<85;x++){
+    for(x=0;x<L/3;x++){
         px.x=x;
         for(y=0;y<H;y++){
             px.y=y;
@@ -23,7 +23,7 @@ int main(){
     }
 
     px.couleur=white;
-    for(x=85;x<2*85;x++){
+    for(x=L/3;x<2*L/3;x++){
         px.x=x;
         for(y=0;y<H;y++){
             px.y=y;
@@ -32,7 +32,7 @@ int main(){
     }
 
     px.couleur=bleu;
-    for(x=2*85;x<3*85;x++){
+    for(x=2*L/3;x<L;x++){
         px.x=x;
         for(y=0;y<H;y++){
             px.y=y;

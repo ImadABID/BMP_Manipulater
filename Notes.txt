@@ -1,5 +1,8 @@
     bmp 24 bits
 aprés l'en-téte décrit sur le fichier pdf
 on stock les colouers des pixel de la méme linge
-puis on ajoute 2octes OO OO je ne sait pour quoi.
+puis on ajoute pour un raison inconnue soit :
+    2octes 00 00
+    3octes 00 00 00
+ca dépond de la taille je pense.
 le footer n'existe pas.
