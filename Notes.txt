@@ -2,4 +2,4 @@
 aprés l'en-téte décrit sur le fichier pdf
 on stock les colouers des pixel de la méme linge
 puis on ajoute 2octes OO OO je ne sait pour quoi.
-le footer n'existe pas. 
+le footer n'existe pas.
