@@ -7,7 +7,7 @@ int main(){
     set_header_image(img);
     
 
-    pixel px; px.img=img; px.couleur=rgb(0,0,100);
+    pixel px; px.img=img; px.couleur=rgb(255,0,0);
 
     int i,j;
     for(i=0;i<L;i++){
