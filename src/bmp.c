@@ -1,5 +1,5 @@
 #include "bmp.h"
-#include <stdio.h>
+
 image set_image(char *img_path, int lenght, int hight){
     image img;
     img.path=malloc(255); img.path=img_path;
@@ -29,8 +29,6 @@ image open(char *path){
         fread(ph,1,4,f);
         ph=adapt(ph);
     fclose(f);
-
-    printf("\n%d\n",HtoD(ph));
 
     return set_image(path, HtoD(pl), HtoD(ph));
 }
