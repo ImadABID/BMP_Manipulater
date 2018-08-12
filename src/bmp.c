@@ -3,7 +3,7 @@
 image set_image(char *img_path, int lenght, int hight){
     image img;
     img.path=malloc(255); img.path=img_path;
-    img.size=EN_TETE_SIZE+3*(lenght+1)*hight;
+    img.size=EN_TETE_SIZE+3*lenght*hight+2*hight;
     img.l= lenght;
     img.h= hight;
     return img;
