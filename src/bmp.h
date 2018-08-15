@@ -7,17 +7,16 @@
 
 #define EN_TETE_SIZE 54
 
-int add;
-
 typedef enum {
     false,true
 }bool;
 
 typedef struct structure2{
     char *path;
-    int size;
     int l;
     int h;
+    int add;
+    int size;
 }image;
 
 image set_image(char *img_path, int lenght, int hight);

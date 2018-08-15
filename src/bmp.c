@@ -6,16 +6,18 @@ image set_image(char *img_path, int lenght, int hight){
     img.l= lenght;
     img.h= hight;
 
-    /*to 4*k */{   
-        l=img.l;
+    /*to 4*k */{
+        int l=img.l;
         l*=3;
-        add=0;
-        while( (int)((l+add)/4) != ((l+add)/4) ){
-            add++;
+        img.add=0;
+        double k = (l+img.add)/4;
+        while( (int)k != k){
+            img.add++;
+            k = (l+img.add)/4;
         }
     }
 
-    img.size=EN_TETE_SIZE+3*lenght*hight+add*hight;
+    img.size=EN_TETE_SIZE+3*lenght*hight+img.add*hight;
 
     return img;
 }
