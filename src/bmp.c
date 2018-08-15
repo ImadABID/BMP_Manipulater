@@ -7,13 +7,14 @@ image set_image(char *img_path, int lenght, int hight){
     img.h= hight;
 
     /*to 4*k */{
-        int l=img.l;
-        l*=3;
+        int l=3*img.l;
         img.add=0;
-        double k = (l+img.add)/4;
+        double k = (double) l/4;
+        printf("%lf",k);
         while( (int)k != k){
             img.add++;
             k = (l+img.add)/4;
+            printf("+1");
         }
     }
 
