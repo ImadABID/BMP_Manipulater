@@ -3,9 +3,20 @@
 image set_image(char *img_path, int lenght, int hight){
     image img;
     img.path=malloc(255); img.path=img_path;
-    img.size=EN_TETE_SIZE+3*lenght*hight+2*hight;
     img.l= lenght;
     img.h= hight;
+
+    /*to 4*k */{   
+        l=img.l;
+        l*=3;
+        add=0;
+        while( (int)((l+add)/4) != ((l+add)/4) ){
+            add++;
+        }
+    }
+
+    img.size=EN_TETE_SIZE+3*lenght*hight+add*hight;
+
     return img;
 }
 

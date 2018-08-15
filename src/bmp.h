@@ -7,6 +7,8 @@
 
 #define EN_TETE_SIZE 54
 
+int add;
+
 typedef enum {
     false,true
 }bool;
