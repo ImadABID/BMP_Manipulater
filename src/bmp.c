@@ -10,11 +10,11 @@ image set_image(char *img_path, int lenght, int hight){
         int l=3*img.l;
         img.add=0;
         double k = (double) l/4;
-        printf("%lf",k);
         while( (int)k != k){
             img.add++;
-            k = (l+img.add)/4;
-            printf("+1");
+            printf("\nadd=%d",img.add);
+            printf("\nl=%d",l);
+            k = ((double)(l+img.add)/4);printf("\n%lf",k);
         }
     }
 

@@ -17,5 +17,5 @@ void save_pixel(pixel px){
 
 unsigned int from2Dto1D(pixel px){
     px.y=px.img.h-px.y-1;
-    return EN_TETE_SIZE+3*(px.y*px.img.l+px.x)+img.add*px.y;
+    return EN_TETE_SIZE+3*(px.y*px.img.l+px.x)+px.img.add*px.y;
 }
