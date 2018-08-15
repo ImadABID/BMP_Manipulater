@@ -20,6 +20,10 @@ image set_image(char *img_path, int lenght, int hight){
 
     img.size=EN_TETE_SIZE+3*lenght*hight+img.add*hight;
 
+    FILE *fichier=fopen(img.path,"r");
+    if(fichier==NULL) set_header_image(img);
+    fclose(fichier);
+
     return img;
 }
 
