@@ -12,9 +12,7 @@ image set_image(char *img_path, int lenght, int hight){
         double k = (double) l/4;
         while( (int)k != k){
             img.add++;
-            printf("\nadd=%d",img.add);
-            printf("\nl=%d",l);
-            k = ((double)(l+img.add)/4);printf("\n%lf",k);
+            k = ((double)(l+img.add)/4);
         }
     }
 

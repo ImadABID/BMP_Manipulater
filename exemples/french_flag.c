@@ -1,10 +1,9 @@
 #include "D:\Imad_Donnes\Etude\Programmation\Projets\BMP_Manipulater\src\paint.h"
-#define L 241
-#define H 120
+#define L 79
+#define H 78
 int main(){
 
     image img=set_image("french_flag.bmp",L,H);
-    set_header_image(img);
 
     color red=rgb(255,0,0);
     color white=rgb(255,255,255);
