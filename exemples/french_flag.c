@@ -2,7 +2,7 @@
 
 int main(){
 
-    image img=set_image("french_flag.bmp",128,256);
+    image img=set_image("french_flag.bmp",256,128);
 
     color red=rgb(255,0,0);
     color white=rgb(255,255,255);
@@ -42,4 +42,3 @@ int main(){
 
     return 0;
 }
-
