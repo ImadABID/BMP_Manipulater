@@ -19,7 +19,10 @@ image set_image(char *img_path, int lenght, int hight){
 
     img.size=EN_TETE_SIZE+3*lenght*hight+img.add*hight;
 
-    if(img.size>RAM_MAX) return NULL;
+    if(img.size>RAM_MAX){
+        image img2;
+        return img2;
+    }
 
     img.hex=malloc(img.size);
 
@@ -117,7 +120,7 @@ void put_pixel(pixel px){
 
 /*-------------------------Save data----------------------------*/
 void save_image(image img){
-    FILE *f=fopen(px.img.path,"rb+");
+    FILE *f=fopen(img.path,"rb+");
         fwrite(img.hex,img.size,1,f);
     fclose(f);
 }
