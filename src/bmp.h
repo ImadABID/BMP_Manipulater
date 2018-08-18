@@ -19,6 +19,19 @@ typedef struct structure2{
     int size;
 }image;
 
+typedef struct structure_of_color{
+    unsigned char o1;
+    unsigned char o2;
+    unsigned char o3;
+}color;
+
+typedef struct structure_of_pixel{
+    image img;
+    int x;
+    int y;
+    color couleur;
+}pixel;
+
 image set_image(char *img_path, int lenght, int hight);
 
 image open(char *path);
@@ -26,5 +39,10 @@ image open(char *path);
 void set_header_image(image img);
 
 unsigned char *adapt(unsigned char *p);
+
+color rgb(unsigned char o1, unsigned char o2, unsigned char o3);
+
+void save_pixel(pixel px);
+unsigned int from2Dto1D(pixel px);
 
 #endif
