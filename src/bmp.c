@@ -25,6 +25,7 @@ image set_image(char *img_path, int lenght, int hight){
 
     FILE *fichier=fopen(img.path,"r");
     if(fichier==NULL) set_header_image(img);
+    else fread(img.hex,img.size,1,fichier);
     fclose(fichier);
 
     return img;
