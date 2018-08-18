@@ -109,6 +109,13 @@ color rgb(unsigned char o1, unsigned char o2, unsigned char o3){
     return c;
 }
 
+void put_pixel(pixel px){
+        px.img.hex[from2Dto1D(px)]=px.couleur.o3;
+        px.img.hex[from2Dto1D(px)+1]=px.couleur.o2;
+        px.img.hex[from2Dto1D(px)+2]=px.couleur.o1;
+}
+
+/*-------------------------Save data----------------------------*/
 void save_pixel(pixel px){
     FILE *f=fopen(px.img.path,"rb+");
         fseek(f,from2Dto1D(px),0);
