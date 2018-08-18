@@ -16,7 +16,7 @@ int main(){
         px.x=x;
         for(y=0;y<img.h;y++){
             px.y=y;
-            save_pixel(px);
+            put_pixel(px);
         }
     }
 
@@ -25,7 +25,7 @@ int main(){
         px.x=x;
         for(y=0;y<img.h;y++){
             px.y=y;
-            save_pixel(px);
+            put_pixel(px);
         }
     }
 
@@ -34,10 +34,11 @@ int main(){
         px.x=x;
         for(y=0;y<img.h;y++){
             px.y=y;
-            save_pixel(px);
+            put_pixel(px);
         }
     }
 
+    save_image(img);
 
     return 0;
 }
