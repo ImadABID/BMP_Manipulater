@@ -116,16 +116,11 @@ void put_pixel(pixel px){
 }
 
 /*-------------------------Save data----------------------------*/
-void save_pixel(pixel px){
+void save_pixel(unsigned char *hex){
     FILE *f=fopen(px.img.path,"rb+");
-        fseek(f,from2Dto1D(px),0);
-        fwrite(&px.couleur.o3,1,1,f);
-        fwrite(&px.couleur.o2,1,1,f);
-        fwrite(&px.couleur.o1,1,1,f);
+        fwrite(hex,px.img.size,1,f);
     fclose(f);
 }
-
-
 
 /*---------------------Adapting for bmp--------------------------------*/
 unsigned char *adapt(unsigned char *p){
