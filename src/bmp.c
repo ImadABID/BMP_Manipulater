@@ -56,49 +56,49 @@ image open(char *path){
 
 void set_header_image(image img){
     unsigned char p2oct[2]={66,77};
-    FILE *f=fopen(img.path,"wb");
-        fwrite(p2oct,1,2,f); //signature bmp
 
-        fwrite(adapt(DtoH(img.size)),1,4,f); //size of file
+        img.hex[0]=66; img.hex[1]=77; //signature bmp
 
-        p2oct[0]=0; p2oct[1]=0;
-        fwrite(p2oct,1,2,f); fwrite(p2oct,1,2,f);
+        unsigned char *p4oct=malloc(4);
+        p4oct=adapt(DtoH(img.size));
+        img.hex[2]=p4oct[0]; img.hex[3]=p4oct[1];
+        img.hex[4]=p4oct[2]; img.hex[5]=p4oct[3];//size of file
 
-        p2oct[0]=54;
-        fwrite(p2oct,1,2,f);
-        p2oct[0]=0;
-        fwrite(p2oct,1,2,f);
+        img.hex[6]=0; img.hex[7]=0;
+        img.hex[8]=0; img.hex[9]=0;
 
-        p2oct[0]=40;
-        fwrite(p2oct,1,2,f);
-        p2oct[0]=0;
-        fwrite(p2oct,1,2,f);
+        img.hex[10]=54; img.hex[11]=0;
+        img.hex[12]=0; img.hex[13]=0;
 
-        fwrite(adapt(DtoH(img.l)),1,4,f); //lenght
-        fwrite(adapt(DtoH(img.h)),1,4,f); //hight
+        img.hex[14]=40; img.hex[15]=0;
+        img.hex[16]=0; img.hex[17]=0;
 
-        p2oct[0]=1;
-        fwrite(p2oct,1,2,f);
-        p2oct[0]=24; 
-        fwrite(p2oct,1,2,f);
+        p4oct=adapt(DtoH(img.l));
+        img.hex[18]=p4oct[0]; img.hex[19]=p4oct[1];
+        img.hex[20]=p4oct[2]; img.hex[21]=p4oct[3];//lenght
 
-        p2oct[0]=0; 
-        fwrite(p2oct,1,2,f); fwrite(p2oct,1,2,f);
+        p4oct=adapt(DtoH(img.h));
+        img.hex[22]=p4oct[0]; img.hex[23]=p4oct[1];
+        img.hex[24]=p4oct[2]; img.hex[25]=p4oct[3];//hight
 
-        p2oct[0]=24; 
-        fwrite(p2oct,1,2,f);
+        img.hex[26]=1; img.hex[27]=0;
+        img.hex[28]=24; img.hex[29]=0;
+
+        img.hex[30]=0; img.hex[31]=0;
+        img.hex[32]=0; img.hex[33]=0;
+
+        img.hex[34]=24; img.hex[35]=0;
 
         int i;
         for(i=0;i<18;i++){
-            fwrite(&p2oct[1],1,1,f);
+            img.hex[36+i]=0;
         }
 
         //Inisialize the body of the image to 00
         for(i=0;i<img.size-EN_TETE_SIZE;i++){
-            fwrite(&p2oct[1],1,1,f);
+            img.hex[EN_TETE_SIZE+i]=0;
         }
 
-    fclose(f);
 }
 
 /*-----------------------Image Elements--------------------------------------*/
