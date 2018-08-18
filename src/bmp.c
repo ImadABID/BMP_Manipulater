@@ -19,6 +19,8 @@ image set_image(char *img_path, int lenght, int hight){
 
     img.size=EN_TETE_SIZE+3*lenght*hight+img.add*hight;
 
+    if(img.size>RAM_MAX) return NULL;
+
     FILE *fichier=fopen(img.path,"r");
     if(fichier==NULL) set_header_image(img);
     fclose(fichier);
@@ -96,21 +98,6 @@ void set_header_image(image img){
 
     fclose(f);
 }
-/*---------------------Adapting for bmp--------------------------------*/
-unsigned char *adapt(unsigned char *p){
-    const char taille=4;
-    unsigned char *q=malloc(taille);
-    int i;
-    for(i=0;i<taille;i++){
-        q[i]=p[taille-1-i];
-    }
-    return q;
-}
-
-unsigned int from2Dto1D(pixel px){
-    px.y=px.img.h-px.y-1;
-    return EN_TETE_SIZE+3*(px.y*px.img.l+px.x)+px.img.add*px.y;
-}
 
 /*-----------------------Image Elements--------------------------------------*/
 color rgb(unsigned char o1, unsigned char o2, unsigned char o3){
@@ -126,4 +113,22 @@ void save_pixel(pixel px){
         fwrite(&px.couleur.o2,1,1,f);
         fwrite(&px.couleur.o1,1,1,f);
     fclose(f);
+}
+
+
+
+/*---------------------Adapting for bmp--------------------------------*/
+unsigned char *adapt(unsigned char *p){
+    const char taille=4;
+    unsigned char *q=malloc(taille);
+    int i;
+    for(i=0;i<taille;i++){
+        q[i]=p[taille-1-i];
+    }
+    return q;
+}
+
+unsigned int from2Dto1D(pixel px){
+    px.y=px.img.h-px.y-1;
+    return EN_TETE_SIZE+3*(px.y*px.img.l+px.x)+px.img.add*px.y;
 }

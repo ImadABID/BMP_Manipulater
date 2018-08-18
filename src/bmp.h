@@ -6,6 +6,7 @@
 #include "binary.h"
 
 #define EN_TETE_SIZE 54
+#define RAM_MAX 26214400 // 25Mo
 
 /*------------------------Structures----------------*/
 typedef enum {
