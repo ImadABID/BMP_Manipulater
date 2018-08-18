@@ -21,6 +21,8 @@ image set_image(char *img_path, int lenght, int hight){
 
     if(img.size>RAM_MAX) return NULL;
 
+    img.hex=malloc(img.size);
+
     FILE *fichier=fopen(img.path,"r");
     if(fichier==NULL) set_header_image(img);
     fclose(fichier);

@@ -19,6 +19,7 @@ typedef struct structure2{
     int h;
     int add;
     int size;
+    unsigned char *hex;
 }image;
 
 typedef struct structure_of_color{
