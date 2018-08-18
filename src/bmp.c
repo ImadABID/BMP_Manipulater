@@ -116,9 +116,9 @@ void put_pixel(pixel px){
 }
 
 /*-------------------------Save data----------------------------*/
-void image_pixel(unsigned char *hex){
+void save_image(image img){
     FILE *f=fopen(px.img.path,"rb+");
-        fwrite(hex,px.img.size,1,f);
+        fwrite(img.hex,img.size,1,f);
     fclose(f);
 }
 

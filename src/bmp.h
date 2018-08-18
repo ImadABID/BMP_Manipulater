@@ -44,7 +44,7 @@ void set_header_image(image img);
 color rgb(unsigned char o1, unsigned char o2, unsigned char o3);
 void put_pixel(pixel px);
 
-void save_pixel(pixel px);
+void save_image(image img);
 
 unsigned char *adapt(unsigned char *p);
 unsigned int from2Dto1D(pixel px);
