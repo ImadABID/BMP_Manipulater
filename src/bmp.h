@@ -7,6 +7,7 @@
 
 #define EN_TETE_SIZE 54
 
+/*------------------------Structures----------------*/
 typedef enum {
     false,true
 }bool;
@@ -32,17 +33,16 @@ typedef struct structure_of_pixel{
     color couleur;
 }pixel;
 
+/*---------------Functions-------------------*/
+
 image set_image(char *img_path, int lenght, int hight);
-
 image open(char *path);
-
 void set_header_image(image img);
 
-unsigned char *adapt(unsigned char *p);
-
 color rgb(unsigned char o1, unsigned char o2, unsigned char o3);
-
 void save_pixel(pixel px);
+
+unsigned char *adapt(unsigned char *p);
 unsigned int from2Dto1D(pixel px);
 
 #endif
