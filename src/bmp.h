@@ -43,6 +43,7 @@ void set_header_image(image img);
 
 color rgb(unsigned char o1, unsigned char o2, unsigned char o3);
 void put_pixel(pixel px);
+pixel get_pixel(image img, int x, int y);
 
 void save_image(image img);
 

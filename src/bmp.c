@@ -118,6 +118,19 @@ void put_pixel(pixel px){
         px.img.hex[from2Dto1D(px)+2]=px.couleur.o1;
 }
 
+pixel get_pixel(image img, int x, int y){
+    pixel px; px.x=x; px.y=y; px.img=img; px.couleur = rgb(0,0,0);
+    int offset=from2Dto1D(px);
+    color c;
+        c.o3=img.hex[offset];
+        c.o2=img.hex[offset+1];
+        c.o1=img.hex[offset+2];
+    
+    px.couleur=c;
+
+    return px;
+}
+
 /*-------------------------Save data----------------------------*/
 void save_image(image img){
     FILE *f=fopen(img.path,"wb");
