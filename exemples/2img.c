@@ -16,9 +16,9 @@ int main(){
     bool adapt=false;
     if(l%2==0) adapt=true;
 
-    for(int i=0; i<l; i++){
+    for(int j=0; j<h; j++){
         if(adapt) is_img1=!is_img1;
-        for(int j=0; j<h; j++){
+        for(int i=0; i<l; i++){
             if(is_img1){
                 px=get_pixel(img1,i,j);
                 is_img1=!is_img1;
