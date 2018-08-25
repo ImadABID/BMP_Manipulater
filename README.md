@@ -2,7 +2,7 @@
 <h2>Presentation</h2>
 BMP_MANIPULATER is a library which allow us to do somme manipulations on bmp image. It is written in langage C and created by Imad ABID in Summer of 2018. 
 
-<h2>How we can use it<h2>
+<h2>How we can use it</h2>
     It easy to use this library you have just to respect this three steps:
     <h3>Initialisation</h3>
     if you want to creat a new image use: <br>
@@ -18,7 +18,7 @@ BMP_MANIPULATER is a library which allow us to do somme manipulations on bmp ima
     <h3>Save</h3>
     All the modifications are at the level of RAM so you to use <code>void save_image(image img);</code> to save the image.
 
-<h2>The types of variables that you have to know<h2>
+<h2>The types of variables that you have to know</h2>
 <code><pre>
     typedef struct structure2{
         char *path;
@@ -43,5 +43,5 @@ BMP_MANIPULATER is a library which allow us to do somme manipulations on bmp ima
     }pixel;
 </pre></code>
 
-<h2>Contact me<h2>
-If you want to contacte me you can use : <a href="emailto:imad.abied@gmail.com">imad.abied@gmail.com</a>
+<h2>Contact me</h2>
+If you want to contacte me you can use : <a href="mailto:imad.abied@gmail.com">imad.abied@gmail.com</a>
