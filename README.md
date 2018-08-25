@@ -9,7 +9,6 @@ BMP_MANIPULATER is a library which allow us to do somme manipulations on bmp ima
         <code>image set_image(char *img_path, int lenght, int hight);</code>
     if this you want to modificate an existing image use:<br>
         <code>image open(char *path);</code>
-
     <h3>Traitement</h3>
     for Now there is just two basic functions:<br>
     <code>void put_pixel(pixel px);</code> this function add a pixel (px) to the image.<br>
