@@ -49,5 +49,4 @@ void save_image(image img);
 
 unsigned char *adapt(unsigned char *p);
 unsigned int from2Dto1D(pixel px);
-
 #endif

@@ -5,6 +5,6 @@
 
 
 
-
+bool colorcmp(color c1, color c2);
 
 #endif
