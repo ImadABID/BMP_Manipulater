@@ -26,6 +26,7 @@ class Bmp{
 public:
 	Bmp(char *img_path, int lenght, int hight);
 	pixel get_pixel(int x, int y);
+	void put_pixel(pixel px);
 private:
 	char *path;
     int l;

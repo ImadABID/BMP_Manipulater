@@ -117,7 +117,8 @@ color Bmp::rgb(unsigned char o1, unsigned char o2, unsigned char o3){
     return c;
 };
 pixel Bmp::get_pixel(int x, int y){
-    pixel px; px.x=x; px.y=y; px.couleur = this::rgb(0,0,0);
+    pixel px; px.img=this;
+    px.x=x; px.y=y; px.couleur = this::rgb(0,0,0);
     int offset=from2Dto1D(px);
     color c;
         c.o3=this::hex[offset];
@@ -127,6 +128,11 @@ pixel Bmp::get_pixel(int x, int y){
     px.couleur=c;
 
     return px;
+};
+void Bmp::put_pixel(pixel px){
+        this::hex[from2Dto1D(px)]=px.couleur.o3;
+        this::hex[from2Dto1D(px)+1]=px.couleur.o2;
+        this::hex[from2Dto1D(px)+2]=px.couleur.o1;
 };
 
 unsigned int Bmp::from2Dto1D(pixel px){
