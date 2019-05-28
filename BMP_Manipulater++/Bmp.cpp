@@ -135,6 +135,12 @@ void Bmp::put_pixel(pixel px){
         this::hex[from2Dto1D(px)+2]=px.couleur.o1;
 };
 
+void Bmp::save(){
+    FILE *f=fopen(this::path,"wb");
+        fwrite(this::hex,this::size,1,f);
+    fclose(f);
+};
+
 unsigned int Bmp::from2Dto1D(pixel px){
     px.y=px.img::h-px.y-1;
     return EN_TETE_SIZE+3*(px.y*px.img::l+px.x)+px.img::add*px.y;

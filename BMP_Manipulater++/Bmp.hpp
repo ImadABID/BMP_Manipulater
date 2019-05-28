@@ -27,6 +27,7 @@ public:
 	Bmp(char *img_path, int lenght, int hight);
 	pixel get_pixel(int x, int y);
 	void put_pixel(pixel px);
+	void save();
 private:
 	char *path;
     int l;
