@@ -14,8 +14,7 @@ private:
     int add;
     int size;
     unsigned char *hex;
-
-    Bmp open(char *path);
+    
     void Bmp::set_header_image();
     unsigned char *Bmp::adapt(unsigned char *p);
 };

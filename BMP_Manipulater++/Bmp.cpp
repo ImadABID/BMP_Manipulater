@@ -1,35 +1,10 @@
 #include "Bmp.hpp"
 Bmp::Bmp(char *img_path, int lenght, int hight){
 	this::path=malloc(255); this::path=img_path;
-    this::l= lenght;
-    this::h= hight;
 
-    /*to 4*k */{
-        int l=3*this::l;
-        this::add=0;
-        double k = (double) l/4;
-        while( (int)k != k){
-            this::add++;
-            k = ((double)(l+this::add)/4);
-        }
-    }
 
-    this::size=EN_TETE_SIZE+3*lenght*hight+this::add*hight;
-
-    if(img.size>RAM_MAX){
-        //Error
-    }
-
-    this::hex=malloc(this::size);
-
-    FILE *fichier=fopen(this::path,"r");
-        if(fichier==NULL) this::set_header_image();
-        else fread(this::hex,this::size,1,fichier);
-    fclose(fichier);
-}
-
-Bmp Bmp::open(char *path){
-        FILE *f=fopen(path,"rb");
+    if(lenght==-1 && hight==-1){ //image existe
+        FILE *f=fopen(this::path,"rb");
         //size
         unsigned char *ps=malloc(4);
         fseek(f,2,SEEK_SET);
@@ -47,9 +22,37 @@ Bmp Bmp::open(char *path){
         unsigned char *ph=malloc(4);
         fread(ph,1,4,f);
         ph=adapt(ph);
-    fclose(f);
 
-    return set_image(path, HtoD(pl), HtoD(ph));
+        this::l=pl;
+        this::h=ph;
+        this::size=ps;
+        fread(this::hex,this::size,1,f);
+        fclose(f);
+    }else{ //create a new image
+        this::l= lenght;
+        this::h= hight;
+        
+        /*to 4*k */{
+            int l=3*this::l;
+            this::add=0;
+            double k = (double) l/4;
+            while( (int)k != k){
+                this::add++;
+                k = ((double)(l+this::add)/4);
+            }
+        }
+        
+        this::size=EN_TETE_SIZE+3*lenght*hight+this::add*hight;
+
+        if(img.size>RAM_MAX){
+            //Error: size is too big
+        }
+        this::hex=malloc(this::size);
+        FILE *fichier=fopen(this::path,"r");
+            this::set_header_image();
+        fclose(fichier);
+    }
+
 }
 
 void Bmp::set_header_image(){
