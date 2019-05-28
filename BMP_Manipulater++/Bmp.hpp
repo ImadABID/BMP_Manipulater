@@ -35,5 +35,6 @@ private:
 
     void Bmp::set_header_image();
     unsigned char *Bmp::adapt(unsigned char *p);
+    color rgb(unsigned char o1, unsigned char o2, unsigned char o3);
 };
 #endif

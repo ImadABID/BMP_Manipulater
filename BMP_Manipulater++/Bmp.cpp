@@ -53,7 +53,7 @@ Bmp::Bmp(char *img_path, int lenght, int hight){
         fclose(fichier);
     }
 
-}
+};
 
 void Bmp::set_header_image(){
 	unsigned char p2oct[2]={66,77};
@@ -99,7 +99,7 @@ void Bmp::set_header_image(){
         for(i=0;i<this::size-EN_TETE_SIZE;i++){
             this::hex[EN_TETE_SIZE+i]=0;
         }
-}
+};
 
 unsigned char *Bmp::adapt(unsigned char *p){
     const char taille=4;
@@ -109,4 +109,10 @@ unsigned char *Bmp::adapt(unsigned char *p){
         q[i]=p[taille-1-i];
     }
     return q;
-}
+};
+
+color Bmp::rgb(unsigned char o1, unsigned char o2, unsigned char o3){
+    color c;
+    c.o1=o1; c.o2=o2; c.o3=o3;
+    return c;
+};
