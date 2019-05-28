@@ -26,7 +26,7 @@ if the image is alerdy in the path, use:
     <code>void put_pixel(pixel px);</code> this function add a pixel (px) to the image.<br>
     <code>pixel get_pixel(image img, int x, int y);</code> this function return the pixel which has the coordinates(x,y) from the image img.<br>
     <h3>Save</h3>
-    All the modifications are at the level of RAM so you to have use <code>void save_image(image img);</code> to save the image.
+    All the modifications are at these level in RAM so you have to use <code>void save_image(image img);</code> to save the image.
 
 <h3>The types of variables that you have to know</h3>
 <code><pre>
