@@ -1,19 +1,9 @@
-#if ! defined(__BMP__)
-#define(__BMP__)
+#if !defined(__BMP__)
+#define __BMP__
 
 #include"Binnary.hpp"
 #define EN_TETE_SIZE 54
 #define RAM_MAX 26214400 // 25Mo
-
-typedef enum {
-    false,true
-}bool;
-
-typedef struct structure_of_color{
-    unsigned char o1;
-    unsigned char o2;
-    unsigned char o3;
-}color;
 
 typedef struct structure_of_pixel{
 	Bmp img;
@@ -21,6 +11,14 @@ typedef struct structure_of_pixel{
     int y;
     color couleur;
 }pixel;
+
+typedef struct structure_of_color{
+    unsigned char o1;
+    unsigned char o2;
+    unsigned char o3;
+}color;
+
+
 
 class Bmp{
 public:
