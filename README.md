@@ -1,8 +1,20 @@
 # BMP_Manipulater
 <h2>Presentation</h2>
-BMP_MANIPULATER is a library which allow us to do somme manipulations on bmp image. It is written in langage C and created by Imad ABID in Summer of 2018. 
-
-<h2>How we can use it</h2>
+BMP_MANIPULATER is a library which allow us to do somme manipulations on bmp image. It is written in langage C and in Summer of 2018 and rewritten with C++. 
+<h2>Langage C++</h2>
+<h3>Class Bmp</h3>
+<h4>class header</h4>
+<h4>Open an image</h4>
+to open an image use the constructer:
+<code>
+    Bmp(char *img_path, int lenght, int hight);
+</code>
+if the image is alerdy in the path, use:
+<code>
+    Bmp(char *img_path, -1, -1);
+</code>
+<h2>Langage C</h2>
+<h3>How we can use it</h3>
     It easy to use this library you have just to respect this three steps:
     <h3>Initialisation</h3>
     if you want to creat a new image use: <br>
@@ -16,7 +28,7 @@ BMP_MANIPULATER is a library which allow us to do somme manipulations on bmp ima
     <h3>Save</h3>
     All the modifications are at the level of RAM so you to have use <code>void save_image(image img);</code> to save the image.
 
-<h2>The types of variables that you have to know</h2>
+<h3>The types of variables that you have to know</h3>
 <code><pre>
     typedef struct structure2{
         char *path;

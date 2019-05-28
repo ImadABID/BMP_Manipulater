@@ -6,7 +6,7 @@
 
 class Bmp{
 public:
-	Bmp();
+	Bmp(char *img_path, int lenght, int hight);
 private:
 	char *path;
     int l;
@@ -15,6 +15,7 @@ private:
     int size;
     unsigned char *hex;
 
+    Bmp open(char *path);
     void Bmp::set_header_image();
     unsigned char *Bmp::adapt(unsigned char *p);
 };

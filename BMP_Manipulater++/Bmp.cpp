@@ -28,6 +28,30 @@ Bmp::Bmp(char *img_path, int lenght, int hight){
     fclose(fichier);
 }
 
+Bmp Bmp::open(char *path){
+        FILE *f=fopen(path,"rb");
+        //size
+        unsigned char *ps=malloc(4);
+        fseek(f,2,SEEK_SET);
+        fread(ps,1,4,f);
+        ps=adapt(ps);
+
+        //Length
+        fseek(f,18,SEEK_SET);
+        unsigned char *pl=malloc(4);
+        fread(pl,1,4,f);
+        pl=adapt(pl);
+
+        //Hight
+        fseek(f,22,SEEK_SET);
+        unsigned char *ph=malloc(4);
+        fread(ph,1,4,f);
+        ph=adapt(ph);
+    fclose(f);
+
+    return set_image(path, HtoD(pl), HtoD(ph));
+}
+
 void Bmp::set_header_image(){
 	unsigned char p2oct[2]={66,77};
 
