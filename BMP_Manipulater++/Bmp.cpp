@@ -127,4 +127,9 @@ pixel Bmp::get_pixel(int x, int y){
     px.couleur=c;
 
     return px;
-}
+};
+
+unsigned int Bmp::from2Dto1D(pixel px){
+    px.y=px.img::h-px.y-1;
+    return EN_TETE_SIZE+3*(px.y*px.img::l+px.x)+px.img::add*px.y;
+};
