@@ -116,3 +116,15 @@ color Bmp::rgb(unsigned char o1, unsigned char o2, unsigned char o3){
     c.o1=o1; c.o2=o2; c.o3=o3;
     return c;
 };
+pixel Bmp::get_pixel(int x, int y){
+    pixel px; px.x=x; px.y=y; px.couleur = this::rgb(0,0,0);
+    int offset=from2Dto1D(px);
+    color c;
+        c.o3=this::hex[offset];
+        c.o2=this::hex[offset+1];
+        c.o1=this::hex[offset+2];
+    
+    px.couleur=c;
+
+    return px;
+}

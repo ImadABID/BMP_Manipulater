@@ -16,7 +16,6 @@ typedef struct structure_of_color{
 }color;
 
 typedef struct structure_of_pixel{
-    image img;
     int x;
     int y;
     color couleur;
@@ -25,6 +24,7 @@ typedef struct structure_of_pixel{
 class Bmp{
 public:
 	Bmp(char *img_path, int lenght, int hight);
+	pixel get_pixel(int x, int y);
 private:
 	char *path;
     int l;
