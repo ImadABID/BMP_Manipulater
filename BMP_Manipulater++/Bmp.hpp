@@ -12,7 +12,6 @@ typedef struct structure_of_color{
 }color;
 
 typedef struct structure_of_pixel{
-	Bmp img;
     int x;
     int y;
     color couleur;

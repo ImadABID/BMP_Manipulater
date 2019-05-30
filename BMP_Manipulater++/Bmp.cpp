@@ -141,7 +141,7 @@ void Bmp::save(){
     fclose(f);
 };
 
-unsigned int Bmp::from2Dto1D(pixel px){//need modification:
-    px.y=px.img::h-px.y-1;
-    return EN_TETE_SIZE+3*(px.y*px.img::l+px.x)+px.img::add*px.y;
+unsigned int Bmp::from2Dto1D(pixel px){
+    px.y=h-px.y-1;
+    return EN_TETE_SIZE+3*(px.y*l+px.x)+add*px.y;
 };
