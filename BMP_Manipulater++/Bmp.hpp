@@ -5,17 +5,17 @@
 #define EN_TETE_SIZE 54
 #define RAM_MAX 26214400 // 25Mo
 
-typedef struct structure_of_color{
+struct color{
     unsigned char o1;
     unsigned char o2;
     unsigned char o3;
-}color;
+};
 
-typedef struct structure_of_pixel{
+struct pixel{
     int x;
     int y;
     color couleur;
-}pixel;
+};
 
 class Bmp{
 public:
