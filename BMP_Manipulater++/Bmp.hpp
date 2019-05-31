@@ -1,6 +1,7 @@
 #if !defined(__BMP__)
 #define __BMP__
 
+#include<memory>
 #include<string>
 #include"Binnary.hpp"
 #define EN_TETE_SIZE 54
@@ -30,7 +31,7 @@ private:
     int h;
     int add;
     int size;
-    unsigned char *hex;
+    std::unique_ptr hex{nullptr};
 
     void set_header_image();
     unsigned char *adapt(unsigned char *p);

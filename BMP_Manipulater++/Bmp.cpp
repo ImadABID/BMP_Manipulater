@@ -1,7 +1,6 @@
 #include "Bmp.hpp"
 Bmp::Bmp(std::string img_path, int lenght, int hight){
-	path=malloc(255); path=img_path;
-
+	path=img_path;
 
     if(lenght==-1 && hight==-1){ //image existe
         FILE *f=fopen(path,"rb");
@@ -25,7 +24,8 @@ Bmp::Bmp(std::string img_path, int lenght, int hight){
 
         l=pl;
         h=ph;
-        this::size=ps;
+        size=ps;
+        hex{std::make_unique<unsigned char[]>(size)};
         fread(hex,size,1,f);
         fclose(f);
     }else{ //create a new image
@@ -47,7 +47,7 @@ Bmp::Bmp(std::string img_path, int lenght, int hight){
         if(img.size>RAM_MAX){
             //Error: size is too big
         }
-        hex=malloc(size);
+        hex{std::make_unique<unsigned char[]>(size)};
         FILE *fichier=fopen(path,"r");
             set_header_image();
         fclose(fichier);
@@ -60,8 +60,8 @@ void Bmp::set_header_image(){
 
         hex[0]=66; hex[1]=77; //signature bmp
 
-        unsigned char *p4oct=malloc(4);
-        p4oct=adapt(DtoH(img.size));
+        std::unique_ptr<unsigned char> p4oct{std::make_unique<unsigned char>(4)};
+        p4oct=adapt(DtoH(size));
         hex[2]=p4oct[0]; hex[3]=p4oct[1];
         hex[4]=p4oct[2]; hex[5]=p4oct[3];//size of file
 
@@ -104,6 +104,7 @@ void Bmp::set_header_image(){
 unsigned char *Bmp::adapt(unsigned char *p){
     const char taille=4;
     unsigned char *q=malloc(taille);
+    std::unique_ptr<unsigned char> q{std::make_unique<unsigned char>(taille)};
     int i;
     for(i=0;i<taille;i++){
         q[i]=p[taille-1-i];
