@@ -31,7 +31,7 @@ private:
     int h;
     int add;
     int size;
-    std::unique_ptr hex{nullptr};
+    std::unique_ptr<unsigned char[]> hex{nullptr};
 
     void set_header_image();
     std::unique_ptr<unsigned char[]> adapt(std::unique_ptr<unsigned char[]> p);
