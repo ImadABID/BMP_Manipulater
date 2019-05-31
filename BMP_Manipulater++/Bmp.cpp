@@ -5,20 +5,21 @@ Bmp::Bmp(std::string img_path, int lenght, int hight){
     if(lenght==-1 && hight==-1){ //image existe
         FILE *f=fopen(path,"rb");
         //size
-        unsigned char *ps=malloc(4);
+        std::unique_ptr<unsigned char[]> ps{std::make_unique<unsigned char>(4)};
         fseek(f,2,SEEK_SET);
         fread(ps,1,4,f);
         ps=adapt(ps);
 
         //Length
         fseek(f,18,SEEK_SET);
-        unsigned char *pl=malloc(4);
+        std::unique_ptr<unsigned char[]> pl{std::make_unique<unsigned char>(4)};
         fread(pl,1,4,f);
         pl=adapt(pl);
 
         //Hight
         fseek(f,22,SEEK_SET);
-        unsigned char *ph=malloc(4);
+        std::unique_ptr<unsigned char[]> ph{std::make_unique<unsigned char>(4)};
+
         fread(ph,1,4,f);
         ph=adapt(ph);
 
@@ -60,7 +61,7 @@ void Bmp::set_header_image(){
 
         hex[0]=66; hex[1]=77; //signature bmp
 
-        std::unique_ptr<unsigned char> p4oct{std::make_unique<unsigned char>(4)};
+        std::unique_ptr<unsigned char[]> p4oct{std::make_unique<unsigned char>(4)};
         p4oct=adapt(DtoH(size));
         hex[2]=p4oct[0]; hex[3]=p4oct[1];
         hex[4]=p4oct[2]; hex[5]=p4oct[3];//size of file
@@ -103,8 +104,7 @@ void Bmp::set_header_image(){
 
 unsigned char *Bmp::adapt(unsigned char *p){
     const char taille=4;
-    unsigned char *q=malloc(taille);
-    std::unique_ptr<unsigned char> q{std::make_unique<unsigned char>(taille)};
+    std::unique_ptr<unsigned char[]> q{std::make_unique<unsigned char>(taille)};
     int i;
     for(i=0;i<taille;i++){
         q[i]=p[taille-1-i];
@@ -118,7 +118,7 @@ color Bmp::rgb(unsigned char o1, unsigned char o2, unsigned char o3){
     return c;
 };
 pixel Bmp::get_pixel(int x, int y){
-    pixel px; px.img=this;//need modification
+    pixel px;
     px.x=x; px.y=y; px.couleur = rgb(0,0,0);
     int offset=from2Dto1D(px);
     color c;
@@ -130,6 +130,7 @@ pixel Bmp::get_pixel(int x, int y){
 
     return px;
 };
+
 void Bmp::put_pixel(pixel px){
         hex[from2Dto1D(px)]=px.couleur.o3;
         hex[from2Dto1D(px)+1]=px.couleur.o2;

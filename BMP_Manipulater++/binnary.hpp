@@ -8,8 +8,8 @@
 
 class Binnary{
 public:
-	unsigned int HtoD(unsigned char *p);
-	unsigned char *DtoH(unsigned int e);
+	unsigned int HtoD(std::unique_ptr<unsigned char[]> p);
+	std::unique_ptr<unsigned char[]> DtoH(unsigned int e);
 };
 
 #endif
