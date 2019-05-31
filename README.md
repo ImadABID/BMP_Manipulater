@@ -1,6 +1,7 @@
-# BMP_Manipulater
+# Photograph the future
 <h2>Presentation</h2>
-BMP_MANIPULATER is a library which allow us to do somme manipulations on bmp image. It is written in langage C and in Summer of 2018 and rewritten with C++. 
+Imaging If we take a 1000x500 as a size of a picture, there is 256^(3*1000*500) image possible. In those images, we are going to find the cars, the cities, the clothes …, of the future. Those images will inspire us to design everything in the future. “Photograph the future” is an open source project, which generate those images, and predict which one is valuable for us.
+<h1>Documentation</h1>
 <h2>Langage C++</h2>
 <h3>Class Bmp</h3>
 <h4>class header</h4>
