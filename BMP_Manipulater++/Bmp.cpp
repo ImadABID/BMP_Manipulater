@@ -1,5 +1,5 @@
 #include "Bmp.hpp"
-Bmp::Bmp(char *img_path, int lenght, int hight){
+Bmp::Bmp(std::string img_path, int lenght, int hight){
 	path=malloc(255); path=img_path;
 
 

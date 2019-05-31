@@ -1,6 +1,7 @@
 #if !defined(__BMP__)
 #define __BMP__
 
+#include<string>
 #include"Binnary.hpp"
 #define EN_TETE_SIZE 54
 #define RAM_MAX 26214400 // 25Mo
@@ -19,12 +20,12 @@ struct pixel{
 
 class Bmp{
 public:
-	Bmp(char *img_path, int lenght, int hight);
+	Bmp(std::string img_path, int lenght, int hight);
 	pixel get_pixel(int x, int y);
 	void put_pixel(pixel px);
 	void save();
 private:
-	char *path;
+	std::string path;
     int l;
     int h;
     int add;
