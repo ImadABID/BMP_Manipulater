@@ -62,7 +62,7 @@ void Bmp::set_header_image(){
         hex[0]=66; hex[1]=77; //signature bmp
 
         std::unique_ptr<unsigned char[]> p4oct{std::make_unique<unsigned char>(4)};
-        p4oct=adapt(DtoH(size));
+        p4oct=adapt(Binnary::DtoH(size));
         hex[2]=p4oct[0]; hex[3]=p4oct[1];
         hex[4]=p4oct[2]; hex[5]=p4oct[3];//size of file
 
@@ -75,11 +75,11 @@ void Bmp::set_header_image(){
         hex[14]=40; hex[15]=0;
         hex[16]=0; hex[17]=0;
 
-        p4oct=adapt(DtoH(img.l));
+        p4oct=adapt(Binnary::DtoH(img.l));
         hex[18]=p4oct[0]; hex[19]=p4oct[1];
         hex[20]=p4oct[2]; hex[21]=p4oct[3];//lenght
 
-        p4oct=adapt(DtoH(img.h));
+        p4oct=adapt(Binnary::DtoH(img.h));
         hex[22]=p4oct[0]; hex[23]=p4oct[1];
         hex[24]=p4oct[2]; hex[25]=p4oct[3];//hight
 
