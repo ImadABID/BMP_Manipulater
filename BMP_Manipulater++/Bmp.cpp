@@ -8,20 +8,20 @@ Bmp::Bmp(std::string img_path, int lenght, int hight){
         std::unique_ptr<unsigned char[]> ps{std::make_unique<unsigned char>(4)};
         fseek(f,2,SEEK_SET);
         fread(ps,1,4,f);
-        ps=adapt(ps);
+        ps=adapt(std::move(ps));
 
         //Length
         fseek(f,18,SEEK_SET);
         std::unique_ptr<unsigned char[]> pl{std::make_unique<unsigned char>(4)};
         fread(pl,1,4,f);
-        pl=adapt(pl);
+        pl=adapt(std::move(pl));
 
         //Hight
         fseek(f,22,SEEK_SET);
         std::unique_ptr<unsigned char[]> ph{std::make_unique<unsigned char>(4)};
 
         fread(ph,1,4,f);
-        ph=adapt(ph);
+        ph=adapt(std::move(ph));
 
         l=pl;
         h=ph;
@@ -62,7 +62,7 @@ void Bmp::set_header_image(){
         hex[0]=66; hex[1]=77; //signature bmp
 
         std::unique_ptr<unsigned char[]> p4oct{std::make_unique<unsigned char>(4)};
-        p4oct=adapt(Binnary::DtoH(size));
+        p4oct=adapt(std::move(Binnary::DtoH(size)));
         hex[2]=p4oct[0]; hex[3]=p4oct[1];
         hex[4]=p4oct[2]; hex[5]=p4oct[3];//size of file
 
@@ -75,7 +75,7 @@ void Bmp::set_header_image(){
         hex[14]=40; hex[15]=0;
         hex[16]=0; hex[17]=0;
 
-        p4oct=adapt(Binnary::DtoH(img.l));
+        p4oct=adapt(std::move(Binnary::DtoH(img.l)));
         hex[18]=p4oct[0]; hex[19]=p4oct[1];
         hex[20]=p4oct[2]; hex[21]=p4oct[3];//lenght
 
