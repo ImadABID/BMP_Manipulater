@@ -79,7 +79,7 @@ void Bmp::set_header_image(){
         hex[18]=p4oct[0]; hex[19]=p4oct[1];
         hex[20]=p4oct[2]; hex[21]=p4oct[3];//lenght
 
-        p4oct=adapt(Binnary::DtoH(img.h));
+        p4oct=adapt(std::move(Binnary::DtoH(img.h)));
         hex[22]=p4oct[0]; hex[23]=p4oct[1];
         hex[24]=p4oct[2]; hex[25]=p4oct[3];//hight
 
@@ -102,7 +102,7 @@ void Bmp::set_header_image(){
         }
 };
 
-std::unique_ptr<unsigned char[]> Bmp::adapt(unsigned char *p){
+std::unique_ptr<unsigned char[]> Bmp::adapt(std::unique_ptr<unsigned char[]> p){
     const char taille=4;
     std::unique_ptr<unsigned char[]> q{std::make_unique<unsigned char>(taille)};
     int i;
