@@ -102,7 +102,7 @@ void Bmp::set_header_image(){
         }
 };
 
-unsigned char *Bmp::adapt(unsigned char *p){
+std::unique_ptr<unsigned char[]> Bmp::adapt(unsigned char *p){
     const char taille=4;
     std::unique_ptr<unsigned char[]> q{std::make_unique<unsigned char>(taille)};
     int i;
