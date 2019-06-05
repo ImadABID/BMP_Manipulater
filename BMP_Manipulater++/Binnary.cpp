@@ -18,3 +18,7 @@ std::unique_ptr<unsigned char[]> Binnary::DtoH(unsigned int e){
     p[3]=e;
     return p;
 };
+
+int Binnary::z(){
+    return 32;
+};

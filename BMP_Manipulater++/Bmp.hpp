@@ -1,7 +1,6 @@
 #if !defined(__BMP__)
 #define __BMP__
 
-#include<memory>
 #include<string>
 #include"Binnary.hpp"
 #define EN_TETE_SIZE 54
