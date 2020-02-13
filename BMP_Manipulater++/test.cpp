@@ -1,6 +1,8 @@
-#include "Bmp.hpp"
+//#include "Bmp.hpp"
 #include <iostream>
+#include <memory>
 
+#include"Binnary.hpp"
 
 int main(){
 	Bmp img{"test.bmp",10,10};
