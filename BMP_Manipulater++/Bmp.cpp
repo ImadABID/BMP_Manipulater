@@ -5,20 +5,20 @@ Bmp::Bmp(std::string img_path, int lenght, int hight){
     if(lenght==-1 && hight==-1){ //image existe
         FILE *f=fopen(path,"rb");
         //size
-        std::unique_ptr<unsigned char[]> ps{std::make_unique<unsigned char>(4)};
+        unsigned char ps[4];
         fseek(f,2,SEEK_SET);
         fread(ps,1,4,f);
         ps=adapt(std::move(ps));
 
         //Length
         fseek(f,18,SEEK_SET);
-        std::unique_ptr<unsigned char[]> pl{std::make_unique<unsigned char>(4)};
+        unsigned char pl[4];
         fread(pl,1,4,f);
         pl=adapt(std::move(pl));
 
         //Hight
         fseek(f,22,SEEK_SET);
-        std::unique_ptr<unsigned char[]> ph{std::make_unique<unsigned char>(4)};
+        unsigned char ph[4];
 
         fread(ph,1,4,f);
         ph=adapt(std::move(ph));
@@ -26,7 +26,8 @@ Bmp::Bmp(std::string img_path, int lenght, int hight){
         l=pl;
         h=ph;
         size=ps;
-        hex{std::make_unique<unsigned char[]>(size)};
+        unsigned char hex_tmp_array[size];
+        hex = hex_tmp_array;
         fread(hex,size,1,f);
         fclose(f);
     }else{ //create a new image
@@ -48,7 +49,8 @@ Bmp::Bmp(std::string img_path, int lenght, int hight){
         if(img.size>RAM_MAX){
             //Error: size is too big
         }
-        hex{std::make_unique<unsigned char[]>(size)};
+        unsigned char hex_tmp_array[size];
+        hex = hex_tmp_array;
         FILE *fichier=fopen(path,"r");
             set_header_image();
         fclose(fichier);
@@ -61,7 +63,7 @@ void Bmp::set_header_image(){
 
         hex[0]=66; hex[1]=77; //signature bmp
 
-        std::unique_ptr<unsigned char[]> p4oct{std::make_unique<unsigned char>(4)};
+        unsigned char p4oct[4];
         p4oct=adapt(std::move(Binnary::DtoH(size)));
         hex[2]=p4oct[0]; hex[3]=p4oct[1];
         hex[4]=p4oct[2]; hex[5]=p4oct[3];//size of file
@@ -102,9 +104,9 @@ void Bmp::set_header_image(){
         }
 };
 
-std::unique_ptr<unsigned char[]> Bmp::adapt(std::unique_ptr<unsigned char[]> p){
+unsigned char *Bmp::adapt(unsigned char *p){
     const char taille=4;
-    std::unique_ptr<unsigned char[]> q{std::make_unique<unsigned char>(taille)};
+    unsigned char q[taille];
     int i;
     for(i=0;i<taille;i++){
         q[i]=p[taille-1-i];
