@@ -1,8 +1,0 @@
-    bmp 24 bits
-
-Chaque ligne de l'image doit comporter un nombre total d'octets qui soit
-un multiple de 4; si ce n'est pas le cas,
-la ligne doit être complétée par des 0
-de telle manière à respecter ce critère.
-
-Version_stable 12min
