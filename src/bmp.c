@@ -6,7 +6,6 @@ image set_image(char *img_path, int lenght, int hight){
     img.path=malloc(255); img.path=img_path;
     img.l= lenght;
     img.h= hight;
-
     /*to 4*k */{
         int l=3*img.l;
         img.add=0;
@@ -26,11 +25,13 @@ image set_image(char *img_path, int lenght, int hight){
 
     img.hex=malloc(img.size);
 
-    FILE *fichier=fopen(img.path,"r");
-        if(fichier==NULL) set_header_image(img);
-        else fread(img.hex,img.size,1,fichier);
-    fclose(fichier);
-
+    FILE *fichier=fopen(img.path,"rb");
+        if(fichier==NULL)
+            set_header_image(img);
+        else{
+            fread(img.hex,img.size,1,fichier);
+            fclose(fichier);
+        }
     return img;
 }
 
@@ -54,7 +55,6 @@ image open(char *path){
         fread(ph,1,4,f);
         ph=adapt(ph);
     fclose(f);
-
     return set_image(path, HtoD(pl), HtoD(ph));
 }
 

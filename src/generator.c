@@ -1,5 +1,5 @@
 #include "generator.h"
-
+/*
 image increment_image(image img_source){
     pixel px;
     int i; int j;
@@ -122,3 +122,4 @@ int abs(int n){
         return -n;
     return n;
 }
+*/

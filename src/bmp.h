@@ -39,6 +39,7 @@ typedef struct structure_of_pixel{
 
 image set_image(char *img_path, int lenght, int hight);
 image open(char *path);
+
 void set_header_image(image img);
 
 color rgb(unsigned char o1, unsigned char o2, unsigned char o3);
