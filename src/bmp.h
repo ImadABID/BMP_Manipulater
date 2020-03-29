@@ -39,15 +39,13 @@ typedef struct structure_of_pixel{
 
 image set_image(char *img_path, int lenght, int hight);
 image open(char *path);
-
-void set_header_image(image img);
+void save_image(image img);
 
 color rgb(unsigned char o1, unsigned char o2, unsigned char o3);
 void put_pixel(pixel px);
 pixel get_pixel(image img, int x, int y);
 
-void save_image(image img);
-
+void set_header_image(image img);
 unsigned char *adapt(unsigned char *p);
 unsigned int from2Dto1D(pixel px);
 #endif
